@@ -44,50 +44,7 @@ public class Employee {
 		this.notes = notes;
 	}
 	
-	public Employee(String title, String firstName, String lastName,
-			String email, String phone, Date dateOfBirth, String address, String notes) {
-		this.title = title;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.phone = phone;
-		this.dateOfBirth = dateOfBirth;
-		this.address = address;
-		this.notes = notes;
-	}
-	
-	public Employee(String title, String firstName, String lastName,
-			String email, String address, String notes) {
-		this.title = title;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.address = address;
-		this.notes = notes;
-	}
-	
-	public Employee(String title, String firstName, String lastName,
-			String email, String notes) {
-		this.title = title;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.notes = notes;
-	}
-	
-	public Employee(String title, String firstName, String lastName, String email) {
-		this.title = title;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
-	
-	public Employee(int id, String firstName, String lastName, String email) {
-		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-	}
+	public Employee() {}
 
 	public int getId() {
 		return id;
