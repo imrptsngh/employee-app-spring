@@ -14,7 +14,7 @@ import com.toumb.employeeappspring.entity.Employee;
 import com.toumb.employeeappspring.service.EmployeeService;
 
 @Controller
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
 
 	private EmployeeService employeeService;
@@ -31,7 +31,7 @@ public class EmployeeController {
 		// Add the employee list to the model
 		model.addAttribute("employees", employees);
 		
-		return "list-employees";
+		return "employees/list-employees";
 	}
 	
 	@GetMapping("/showAddForm")
@@ -41,7 +41,7 @@ public class EmployeeController {
 		
 		model.addAttribute("employee", employee);
 		
-		return "employee-form";
+		return "employees/employee-form";
 	}
 	
 	@PostMapping("/save")
@@ -49,7 +49,7 @@ public class EmployeeController {
 		// Save the employee using the service
 		employeeService.save(employee);
 		
-		return "redirect:/employee/list";
+		return "redirect:/employees/list";
 	}
 	
 	@GetMapping("/showUpdateForm")
@@ -59,7 +59,7 @@ public class EmployeeController {
 		// Set employee as a model attribute to pre-populate the form
 		model.addAttribute("employee", employee);
 		// Send to the form		
-		return "employee-form";
+		return "employees/employee-form";
 	}
 	
 	@GetMapping("/delete")
@@ -67,7 +67,7 @@ public class EmployeeController {
 		// Delete the employee record
 		employeeService.deleteById(id);
 		
-		return "redirect:/employee/list";
+		return "redirect:/employees/list";
 	}
 	
 }

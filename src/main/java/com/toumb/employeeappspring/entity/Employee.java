@@ -2,47 +2,51 @@ package com.toumb.employeeappspring.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employee")
 public class Employee {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="title")
 	private String title;
+	
+	@Column(name="first_name")
 	private String firstName;
+	
+	@Column(name="last_name")
 	private String lastName;
+	
+	@Column(name="job_title")
 	private String jobTitle;
+	
+	@Column(name="department")
 	private String department;
+	
+	@Column(name="email")
 	private String email;
+	
+	@Column(name="phone")
 	private String phone;
+	
+	@Column(name="date_of_birth")
 	private Date dateOfBirth;
+	
+	@Column(name="address")
 	private String address;
+	
+	@Column(name="notes")
 	private String notes;
-	
-	public Employee(int id, String title, String firstName, String lastName, String jobTitle, String department,
-			String email, String phone, Date dateOfBirth, String address, String notes) {
-		this.id = id;
-		this.title = title;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.jobTitle = jobTitle;
-		this.department = department;
-		this.email = email;
-		this.phone = phone;
-		this.dateOfBirth = dateOfBirth;
-		this.address = address;
-		this.notes = notes;
-	}
-	
-	public Employee(String title, String firstName, String lastName, String jobTitle, String department,
-			String email, String phone, Date dateOfBirth, String address, String notes) {
-		this.title = title;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.jobTitle = jobTitle;
-		this.department = department;
-		this.email = email;
-		this.phone = phone;
-		this.dateOfBirth = dateOfBirth;
-		this.address = address;
-		this.notes = notes;
-	}
 	
 	public Employee() {}
 
