@@ -5,15 +5,15 @@ USE `employee_tracker`;
 
 -- Create table `user` for application users
 
-DROP TABLE IF EXISTS `user`;
-
-CREATE TABLE `user` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `username` varchar(50) NOT NULL,
+  `password` char(68) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Create a typical admin user
 
-INSERT INTO user (`username`, `password`) VALUES ("admin", "admin");
+INSERT INTO users VALUES ("admin", "{bcrypt}$2y$12$mRNR6trkOmlXItEaZOrzxujQI0MzMwTwZJPpSWQGztuu4R0s6JFuu", 1),
+						 ("user", "{bcrypt}$2y$12$q0DEeXmumTu3ePCwJCvwGuVprdYp7soi4/48ujjh7Ya1YV1kHtnVy" ,1);
