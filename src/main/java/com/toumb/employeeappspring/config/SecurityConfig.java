@@ -8,8 +8,6 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// Use JDBC authentication
 		auth.jdbcAuthentication().dataSource(securityDataSource);
-		
 	}
 
 	@Override
@@ -30,18 +27,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http.authorizeRequests()
 			.antMatchers("/").hasRole("EMPLOYEE")
-			.antMatchers("/leaders/**").hasRole("MANAGER")
-			.antMatchers("/systems/**").hasRole("ADMIN")
+			.antMatchers("/employees/**").hasRole("EMPLOYEE")
+			.anyRequest().authenticated()
 			.and()
 			.formLogin()
-				.loginPage("/")
+				.loginPage("/login")
 				.loginProcessingUrl("/authenticateTheUser")
 				.permitAll()
 			.and()
-			.logout().permitAll()
-			.and()
-			.exceptionHandling().accessDeniedPage("/access-denied");
-		
+			.logout().permitAll();
 	}
 		
 }

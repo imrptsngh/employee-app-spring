@@ -33,8 +33,8 @@ public class AppConfig {
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-		viewResolver.setPrefix("/WEB-INF/view/");
-		viewResolver.setSuffix(".jsp");
+		viewResolver.setPrefix("/resources/templates/");
+		viewResolver.setSuffix(".html");
 		
 		return viewResolver;
 	}
@@ -47,19 +47,19 @@ public class AppConfig {
 		
 		// Set the JDBC driver class
 		try {
-			securityDataSource.setDriverClass(env.getProperty("jdbc.driver"));
+			securityDataSource.setDriverClass(env.getProperty("spring.datasource.driver-class-name.driver"));
 		} catch (PropertyVetoException exc) {
 			throw new RuntimeException(exc);
 		}
 		
 		// Log the connection properties
-		logger.info(">>> jdbc.url=" + env.getProperty("jdbc.url"));
-		logger.info(">>> jdbc.user=" + env.getProperty("jdbc.user"));
+		logger.info(">>> jdbc.url=" + env.getProperty("spring.datasource.url"));
+		logger.info(">>> jdbc.user=" + env.getProperty("spring.datasource.username"));
 		
 		// Set the database connection properties
-		securityDataSource.setJdbcUrl(env.getProperty("jdbc.url"));
-		securityDataSource.setUser(env.getProperty("jdbc.user"));
-		securityDataSource.setPassword(env.getProperty("jdbc.password"));
+		securityDataSource.setJdbcUrl(env.getProperty("spring.datasource.url"));
+		securityDataSource.setUser(env.getProperty("spring.datasource.username"));
+		securityDataSource.setPassword(env.getProperty("spring.datasource.password"));
 		
 		// Set connection pool properties
 		securityDataSource.setInitialPoolSize(getIntProperty("connection.pool.initialPoolSize"));
