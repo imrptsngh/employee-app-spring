@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>Save Employee</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<br>
+		<h3>Employee Management System</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Employee</p>
+		
+		<form action="/" th:action="@{/employees/save}"
+						 th:object="${employee}" method="POST">
+		
+			<input type="hidden" th:field="*{id}"/>
+		
+			<select th:field="*{title}" class="form-control mb-4 col-4" placeholder="Title" required="required">
+				<option value="-">-</option>
+				<option value="Mr">Mr</option>
+				<option value="Mrs">Mrs</option>
+			</select>
+			<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" placeholder="First Name" required="required">
+			<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" placeholder="Last Name" required="required">
+			<input type="text" th:field="*{jobTitle}" class="form-control mb-4 col-4" placeholder="Job Title" required="required">
+			<select th:field="*{department}" class="form-control mb-4 col-4" placeholder="Department" required="required">
+				<option value=""></option>
+				<option value="Development">Development</option>
+				<option value="Finance">Finance</option>
+				<option value="Marketing">Marketing</option>
+				<option value="Human Resources">Human Resources</option>
+				<option value="Support">Support</option>
+				<option value="Research & Development">Research & Development</option>
+				<option value="Sales">Sales</option>
+			</select>
+			<input type="text" th:field="*{email}" class="form-control mb-4 col-4" placeholder="Email" required="required">
+			<input type="text" th:field="*{phone}" class="form-control mb-4 col-4" placeholder="Phone Number" required="required">
+			<input type="date" th:field="*{dateOfBirth}" class="form-control mb-4 col-4" placeholder="Date of Birth" required="required">
+			<input type="text" th:field="*{address}" class="form-control mb-4 col-4" placeholder="Address" required="required">
+			<textarea rows="7" th:field="*{notes}" class="form-control mb-4 col-4" placeholder="Notes"></textarea>
+						
+			<button type="submit" class="btn btn-info col-2">Save</button>
+		
+		</form>
+		
+		<hr>
+		<a th:href="@{/employees/list}">Back to Employee List</a>
+	
+	</div>
+
+</body>
+
+</html>
