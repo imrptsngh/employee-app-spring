@@ -1,6 +1,8 @@
 package com.toumb.employeeappspring.controller;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -48,6 +50,13 @@ public class EmployeeController {
 	
 	@PostMapping("/save")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee, BindingResult result) throws IOException {
+		// Add one day to the date stored to fix an SQL bug
+		java.sql.Date dateOfBirth = employee.getDateOfBirth();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dateOfBirth);
+		cal.add(Calendar.DAY_OF_YEAR, 1);
+		dateOfBirth = new Date(cal.getTimeInMillis());
+		employee.setDateOfBirth(dateOfBirth);
 		// Save the employee using the service
 		employeeService.save(employee);
 		
