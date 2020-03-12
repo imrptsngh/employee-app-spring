@@ -50,7 +50,7 @@ public class EmployeeController {
 	
 	@PostMapping("/save")
 	public String saveEmployee(@ModelAttribute("employee") Employee employee, BindingResult result) throws IOException {
-		// Add one day to the date stored to fix an SQL bug
+		// Add one day to the date stored to fix a MySQL bug
 		java.sql.Date dateOfBirth = employee.getDateOfBirth();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(dateOfBirth);
