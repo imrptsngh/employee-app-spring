@@ -15,7 +15,9 @@
 
 	<div class="container">
 		<br>
-		<h3>Employee Management System</h3>
+		<div class="p-3 mb-2 bg-info text-white">
+			<h3 class="font-weight-bold">Employee Management System</h3>
+		</div>
 		<hr>
 		
 		<p class="h4 mb-4">Save Employee</p>
@@ -50,12 +52,12 @@
 			<textarea rows="7" th:field="*{notes}" class="form-control mb-4 col-4" placeholder="Notes"></textarea>
 						
 			<button type="submit" class="btn btn-info col-2">Save</button>
+			<a th:href="@{/employees/list}" class="btn btn-info col-2">Cancel</a>
 		
 		</form>
-		
-		<hr>
-		<a th:href="@{/employees/list}">Back to Employee List</a>
-	
+		<br>
+		<br>
+		<br>
 	</div>
 
 </body>
