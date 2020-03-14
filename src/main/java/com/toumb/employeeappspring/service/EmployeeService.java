@@ -13,5 +13,7 @@ public interface EmployeeService {
 	public void save(Employee employee);
 	
 	public void deleteById(int id);
+	
+	public List<Employee> findByKeyword(String keyword);
 
 }

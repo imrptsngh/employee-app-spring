@@ -81,4 +81,17 @@ public class EmployeeController {
 		return "redirect:/employees/list";
 	}
 	
+	@GetMapping("/search")
+	public String searchEmployees(Model model, @RequestParam("keyword") String keyword) {
+		if (keyword != null && keyword.trim().length() > 0) {
+			// Get the employee list from the Service
+			List<Employee> employees = employeeService.findByKeyword(keyword);
+			// Add the employee list to the model
+			model.addAttribute("employees", employees);
+		} else {
+			listEmployees(model);
+		}
+		
+		return "employees/list-employees";
+	}
 }

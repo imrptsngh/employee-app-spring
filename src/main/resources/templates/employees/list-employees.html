@@ -19,10 +19,10 @@
 		<h3 class="font-weight-bold">Employee Management System</h3>
 	</div>
 	<br>
-	<form action="#" th:action="@{/employees/searchEmployee}"
-						 th:object="${employee}" method="POST"
+	<form action="#" th:action="@{/employees/search(keyword=${keyword})}"
+						 th:object="${employees}" method="GET"
 						 class="form-inline">
-		<input type="text" name="searchKeyword" placeholder="Search Employee" class="form-control mr-sm-2 col-4"/>
+		<input type="text" name="keyword" placeholder="Search Employee" class="form-control mr-sm-2 col-4"/>
 		<input type="submit" value="Search" class="btn btn-info my-2 my-sm-0 col-2">
 		
 		<a th:href="@{/employees/showAddForm}" class="btn btn-info my-sm-0 my-2 col-2 ml-auto">
@@ -43,8 +43,8 @@
 		</thead>
 		<tbody>
 			<tr th:each="tempEmployee : ${employees}" style="text-align:center; vertical-align:middle;">
-				<td th:text="${tempEmployee.firstName}"/>
 				<td th:text="${tempEmployee.lastName}"/>
+				<td th:text="${tempEmployee.firstName}"/>
 				<td th:text="${tempEmployee.jobTitle}"/>
 				<td th:text="${tempEmployee.department}"/>
 				<td th:text="${tempEmployee.email}"/>
