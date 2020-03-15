@@ -26,16 +26,16 @@
 		
 			<input type="hidden" th:field="*{id}"/>
 		
-			<select th:field="*{title}" class="form-control mb-4 col-4" placeholder="Title" required="required">
-				<option value="-">-</option>
+			<select th:field="*{title}" class="form-control mb-4 col-4" required="required">
+				<option value="-" selected="selected">-</option>
 				<option value="Mr">Mr</option>
 				<option value="Mrs">Mrs</option>
 			</select>
 			<input type="text" th:field="*{firstName}" class="form-control mb-4 col-4" placeholder="First Name" required="required">
 			<input type="text" th:field="*{lastName}" class="form-control mb-4 col-4" placeholder="Last Name" required="required">
 			<input type="text" th:field="*{jobTitle}" class="form-control mb-4 col-4" placeholder="Job Title" required="required">
-			<select th:field="*{department}" class="form-control mb-4 col-4" placeholder="Department" required="required">
-				<option value=""></option>
+			<select th:field="*{department}" class="form-control mb-4 col-4 placeholder-select" required="required">
+				<option value="" selected="selected">Choose department..</option>
 				<option value="Development">Development</option>
 				<option value="Finance">Finance</option>
 				<option value="Marketing">Marketing</option>

@@ -17,6 +17,9 @@
 	<br>
 	<div class="p-3 mb-2 bg-info text-white">
 		<h3 class="font-weight-bold">Employee Management System</h3>
+		<a th:href="@{/security/logout}" class="btn btn-info my-sm-0 my-2 col-2 ml-auto">
+			Logout
+		</a>
 	</div>
 	<br>
 	<form action="#" th:action="@{/employees/search(keyword=${keyword})}"
