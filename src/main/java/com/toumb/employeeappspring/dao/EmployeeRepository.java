@@ -13,8 +13,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 	public List<Employee> findAllByOrderByLastNameAsc();
 	
 	// Add a method to search records with keyword
-	@Query("FROM Employee WHERE LOWER(first_name) LIKE ?1 OR LOWER(last_name) LIKE ?1"
-	       + " OR LOWER(job_title) LIKE ?1 OR LOWER(department) LIKE ?1 OR LOWER(email) LIKE ?1")
+	@Query("FROM Employee WHERE LOWER(first_name) LIKE %?1% OR LOWER(last_name) LIKE %?1%"
+	       + " OR LOWER(job_title) LIKE %?1% OR LOWER(department) LIKE %?1% OR LOWER(email) LIKE %?1%")
 	public List<Employee> findByKeyword(String keyword);
 
 }
