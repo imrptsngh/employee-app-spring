@@ -25,7 +25,7 @@ login feature is implemented, using the bcrypt encryption on passwords.
 
 <br><br>
 <div align="center">
-	<kbd><img src="./images/01.Login.png" width="450" /></kbd>
+	<kbd><img src="./images/01.Login.png" width="325" /></kbd>
 	<br><br>
 	<b>Image 1 - Login screen</b>
 </div>
