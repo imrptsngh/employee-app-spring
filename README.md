@@ -1,6 +1,5 @@
-# employee-app
-<b>Employee Management application - Spring framework</b>
-<br><br>
+# Employee Management Application - Spring framework
+<br>
 <b>Description:</b>
 
 An employee management application that is used to keep employee data, performing
